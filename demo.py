@@ -12,7 +12,7 @@ if __name__ == '__main__':
     file = 'testdata/test_stereo.mp3'
     start = time()
     for k in tqdm(list(range(50))):
-        pcm, sr = load_mp3(file, 11000)
+        pcm, sr = load_mp3(file)
     soundfile.write('demo_out.wav', numpy.transpose(pcm, (1,0)), sr)
     print(f'tinymp3 elapsed: {time() -start}')
 
