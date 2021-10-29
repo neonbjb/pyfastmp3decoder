@@ -1,0 +1,6 @@
+coverage
+pytest >= 3.3
+pytest-cov >= 2.0
+tox
+librosa
+numpy

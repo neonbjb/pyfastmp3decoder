@@ -1,0 +1,18 @@
+include LICENSE
+include README.rst
+
+include pyproject.toml
+
+include minimp3/*.c minimp3/*.h
+include minimp3/LICENSE
+
+recursive-include * *.py *.pyx *.pyd
+
+recursive-exclude .eggs/ *
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+
+recursive-exclude src *.so
+recursive-exclude lib *.c *.h
+
+recursive-include docs *.rst conf.py Makefile make.bat *.jpg *.png *.gif
