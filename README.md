@@ -4,12 +4,17 @@ This project builds upon https://github.com/pyminimp3/pyminimp3 by fixing severa
 make the latter repo unusable (thanks to an investigation by newdive@ for this). It also wraps
 the library in an API that mirrors the librosa API for loading MP3 files.
 
-On my system, this library loads MP3 files >10x faster than librosa or other libraries which
-use the FFMPEG backend.
+On my system, this library loads MP3 files 4x faster than librosa or other libraries which
+use the FFMPEG backend. Smaller files see even greater speed boosts.
 
 ## Installation
 
-`python setup.py install`
+```
+git clone https://github.com/neonbjb/pyfastmp3decoder.git
+cd pyfastmp3decoder
+git submodule update --init --recursive
+python setup.py install
+```
 
 ## Demo
 

@@ -8,7 +8,7 @@ import numpy
 def load_mp3(path, sample_rate=None, return_sr=True, return_stats=False):
     """
     Decodes the MP3 file at path, returning the decoded file as a numpy float array as well as some extraneous data
-    if requested (see params)
+    if requested (see params). Shape of output is (channels,pcm_length).
 
     :param path: MP3 file path.
     :param sample_rate: If specified, the returned data will be resampled to this sample rate.
@@ -29,8 +29,11 @@ def load_mp3(path, sample_rate=None, return_sr=True, return_stats=False):
             data.extend(pcm)
 
         np_pcm = numpy.asarray(data, dtype=numpy.float) / 32767
+        np_pcm = numpy.reshape(np_pcm, (np_pcm.shape[0]//chans, chans))
+        np_pcm = numpy.transpose(np_pcm, (1,0))
         if sample_rate is not None and sample_rate != hz:
             np_pcm = librosa.resample(np_pcm, hz, sample_rate)
+            hz = sample_rate
         if return_sr:
             return np_pcm, hz
         elif return_stats:
