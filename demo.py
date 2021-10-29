@@ -11,7 +11,7 @@ if __name__ == '__main__':
     # Demonstrates the decoding speed differences between librosa and this library.
     file = 'testdata/test_stereo.mp3'
     start = time()
-    for k in tqdm(list(range(1))):
+    for k in tqdm(list(range(50))):
         pcm, sr = load_mp3(file, 11000)
     soundfile.write('demo_out.wav', numpy.transpose(pcm, (1,0)), sr)
     print(f'tinymp3 elapsed: {time() -start}')
