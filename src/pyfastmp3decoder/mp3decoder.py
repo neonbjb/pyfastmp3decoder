@@ -28,7 +28,7 @@ def load_mp3(path, sample_rate=None, return_sr=True, return_stats=False):
                 bitrate = b
             data.extend(pcm)
 
-        np_pcm = numpy.asarray(data, dtype=numpy.float) / 32767
+        np_pcm = numpy.asarray(data, dtype=float) / 32767
         if chans > 1:
             np_pcm = numpy.reshape(np_pcm, (np_pcm.shape[0]//chans, chans))
             np_pcm = numpy.transpose(np_pcm, (1,0))
