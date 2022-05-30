@@ -10,6 +10,7 @@ use the FFMPEG backend. Smaller files see even greater speed boosts.
 ## Installation
 
 ```
+pip install cython
 git clone https://github.com/neonbjb/pyfastmp3decoder.git
 cd pyfastmp3decoder
 git submodule update --init --recursive
